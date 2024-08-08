@@ -1,14 +1,14 @@
-# Project Name:-
+# Project Name :-
 
     - Movie App
 
-## Project Managers:-
+## Project Managers :-
 
     - Mazen Abdeltawab Saad
     - Ahmed Mohamed Ahmed
     - Nada Mohamed Shaaban
 
-### Github:-
+### Github :-
 
     - SSH
         - ssh-keygen -t ed25519 -C "ex@gmail.com"
@@ -49,7 +49,7 @@
         - git tag -a v1.0 -m "Version 1.0"
         - git push origin v1.0
 
-### Drawio:-
+### Drawio :-
 
 -   install Extensions in vscode :- Draw.io Integration
 -   or
