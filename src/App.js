@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable react/jsx-no-undef */
+import "bootstrap/dist/css/bootstrap.css";
+import "./App.css";
+
+import { useState } from "react";
+import { Provider } from "react-redux";
+
+import store from "./store/store";
+import AppRoute from "./routes/Router";
+
+import themeContext from "./context/themeContext";
+import languageContext from "./context/languageContext";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [darkMode, setDarkMode] = useState(false);
+    const [language, setLanguage] = useState("en");
+
+    return (
+        <>
+            <Provider store={store}>
+                <themeContext.Provider value={{ darkMode, setDarkMode }}>
+                    <languageContext.Provider value={{ language, setLanguage }}>
+                        <AppRoute />
+                    </languageContext.Provider>
+                </themeContext.Provider>
+            </Provider>
+        </>
+    );
 }
 
 export default App;
