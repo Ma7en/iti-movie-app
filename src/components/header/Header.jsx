@@ -27,7 +27,7 @@ function Header() {
                         to="/home"
                     >
                         <FontAwesomeIcon icon={faFilm} />
-                        <span className="d-inline-block">Moviester</span>
+                        <span className="d-inline-block">Movie App</span>
                     </NavLink>
 
                     <Nav className="d-flex align-items-center">
