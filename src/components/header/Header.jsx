@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 
 // bootstrap
 import { Nav, Navbar } from "react-bootstrap";
 
 // font awsome icons
-import { faFilm,  } from "@fortawesome/free-solid-svg-icons";
+import { faFilm, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // context
@@ -17,6 +17,7 @@ function Header() {
     const { darkMode, setDarkMode } = useContext(themeContext);
     const { language, setLanguage } = useContext(languageContext);
 
+    const watchlist = useSelector((state) => state.watchlist.watchlist);
 
     return (
         <>
@@ -61,7 +62,19 @@ function Header() {
                             className="nav-link fs-5 d-flex align-items-center gap-2"
                             to="/watchlist"
                         >
-                            watchlist
+                            <span>Watchlist</span>
+                            <FontAwesomeIcon icon={faHeart} />
+                            {watchlist?.length ? (
+                                <>
+                                    <span className="bg-danger">
+                                        {watchlist?.length}
+                                    </span>
+                                </>
+                            ) : (
+                                <>
+                                    <span>0</span>
+                                </>
+                            )}
                         </NavLink>
                     </Nav>
                 </Navbar>

@@ -22,6 +22,7 @@ function Welcome({ query, setQuery }) {
                     <div className="d-flex">
                         <input
                             type="search"
+                            name="search"
                             className="form-control rounded vw-75 me-5"
                             placeholder="Search and explore"
                             aria-label="Search"

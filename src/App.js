@@ -5,13 +5,15 @@ import "./App.css";
 import { useState } from "react";
 import { Provider } from "react-redux";
 
+// store
 import store from "./store/store";
-import AppRoute from "./routes/Router";
 
+// context
 import themeContext from "./context/themeContext";
 import languageContext from "./context/languageContext";
 
-
+// routes
+import AppRoute from "./routes/Router";
 
 function App() {
     const [darkMode, setDarkMode] = useState(false);
@@ -19,11 +21,7 @@ function App() {
 
     return (
         <>
-
-
-        
-           
-          <Provider store={store}>
+            <Provider store={store}>
                 <themeContext.Provider value={{ darkMode, setDarkMode }}>
                     <languageContext.Provider value={{ language, setLanguage }}>
                         <AppRoute />

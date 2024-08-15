@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 // centext
 import themeContext from "../../context/themeContext";
@@ -8,11 +9,6 @@ import languageContext from "../../context/languageContext";
 
 // import components
 import Welcome from "../../components/welcome/Welcome";
-import { axiosInstance } from "../../api/config";
-import axios from "axios";
-
-// import MovieCard from "../Components/MovieCard";
-import { Button } from "react-bootstrap";
 import Movies from "../../components/movie/Movies";
 
 function HomePage() {
@@ -22,7 +18,7 @@ function HomePage() {
     const { language, setLanguage } = useContext(languageContext);
 
     const [moviesList, setMoviesList] = useState([]);
-    
+
     const [page, setPage] = useState(1);
     const [maxpages, setMaxpages] = useState(1);
     const [error, setError] = useState(null);
@@ -57,7 +53,7 @@ function HomePage() {
         fetchMovies();
     }, []);
 
-    // search movies 
+    // search movies
     useEffect(() => {
         const fetchMoviesSearch = async () => {
             try {
@@ -73,7 +69,7 @@ function HomePage() {
                     )
                     .then((response) => {
                         // console.log(response);
-                        setMoviesListSeacrh(response.data.results); 
+                        setMoviesListSeacrh(response.data.results);
                     });
             } catch (error) {
                 console.log(error);

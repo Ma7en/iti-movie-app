@@ -1,10 +1,20 @@
-/* eslint-disable react/jsx-no-undef */
 import React from "react";
+import MovieCard from "./MovieCard";
 
-function Movies() {
+function Movies({ moviesList }) {
     return (
         <>
-            <div>Movies</div>
+            <div className="movies">
+                <div className="container py-3">
+                    <div className="row g-3">
+                        {moviesList.map((movie, index) => (
+                            <React.Fragment key={index}>
+                                <MovieCard movie={movie} />
+                            </React.Fragment>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </>
     );
 }

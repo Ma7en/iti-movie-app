@@ -30,6 +30,12 @@ function AppRoute() {
                             {/* home page */}
                             <Route path="/" element={<HomePage />} />
                             <Route path="/home" element={<HomePage />} />
+                            <Route path="/movieapp" element={<HomePage />} />
+                            <Route
+                                path="/iti-movie-app"
+                                element={<HomePage />}
+                            />
+                            <Route path="/moviestar" element={<HomePage />} />
 
                             {/* watchlist page */}
                             <Route
