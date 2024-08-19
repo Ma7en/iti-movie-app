@@ -31,26 +31,32 @@ function AppRoute() {
                             <Route path="/" element={<HomePage />} />
                             <Route path="/home" element={<HomePage />} />
                             <Route path="/movieapp" element={<HomePage />} />
+                            <Route path="/movie" element={<HomePage />} />
+                            <Route path="/moviestar" element={<HomePage />} />
                             <Route
                                 path="/iti-movie-app"
                                 element={<HomePage />}
                             />
-                            <Route path="/moviestar" element={<HomePage />} />
 
                             {/* watchlist page */}
                             <Route
                                 path="/watchlist"
                                 element={<WatchListPage />}
                             />
+                            <Route path="/watch" element={<WatchListPage />} />
 
                             {/* Details pages */}
                             <Route
                                 path="/movie/:id"
                                 element={<MovieDetails />}
                             />
+                            <Route
+                                path="/movieapp/:id"
+                                element={<MovieDetails />}
+                            />
                         </Route>
 
-                        {/* NotFound or Error */}
+                        {/* NotFound or Error pages */}
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </BrowserRouter>

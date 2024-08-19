@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-undef */
+// import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
-import "./App.css";
 
 import { useState } from "react";
 import { Provider } from "react-redux";
@@ -12,7 +12,7 @@ import store from "./store/store";
 import themeContext from "./context/themeContext";
 import languageContext from "./context/languageContext";
 
-// routes
+// route
 import AppRoute from "./routes/Router";
 
 function App() {

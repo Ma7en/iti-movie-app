@@ -2,24 +2,24 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const Initial_State = {
     watchlist: [],
-    synced: false,
 };
 
 const watchlistSlice = createSlice({
     name: "watchlistSlice",
     initialState: Initial_State,
     reducers: {
-        setWatchlist: (state, action) => {
-            state.watchlist = action.payload;
-            state.synced = true;
-        },
-
-        addTowatchlist: (state, action) => {
-            state.watchlist.push(action.payload);
-        },
-
-        removeFromwatchlist: (state, action) => {
-            state.watchlist.pop(state.watchlist.indexOf(action.payload));
+        toggleWatchList: (state, action) => {
+            // console.log(`action`, action.payload);
+            const new_watchlist = action.payload;
+            if (
+                !state.watchlist.find((watch) => watch.id === new_watchlist.id)
+            ) {
+                state.watchlist.push(new_watchlist);
+            } else {
+                state.watchlist = state.watchlist.filter(
+                    (watch) => watch.id !== new_watchlist.id
+                );
+            }
         },
 
         clearwatchlist: (state, action) => {
@@ -28,10 +28,5 @@ const watchlistSlice = createSlice({
     },
 });
 
-export const {
-    addTowatchlist,
-    removeFromwatchlist,
-    clearwatchlist,
-    setWatchlist,
-} = watchlistSlice.actions;
+export const { toggleWatchList, clearwatchlist } = watchlistSlice.actions;
 export default watchlistSlice.reducer;

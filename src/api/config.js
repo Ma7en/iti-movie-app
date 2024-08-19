@@ -1,7 +1,8 @@
 import axios from "axios";
 
-const axiosInstance = axios.create({
-    baseURL: "https://dummyjson.com/",
+export const axiosInstance = axios.create({
+    baseURL: process.env.REACT_APP_BASE_API_Link,
+    params: {
+        api_key: process.env.REACT_APP_API_KEY,
+    },
 });
-
-export default axiosInstance;

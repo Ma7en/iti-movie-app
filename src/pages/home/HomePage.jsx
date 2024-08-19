@@ -6,10 +6,12 @@ import axios from "axios";
 // centext
 import themeContext from "../../context/themeContext";
 import languageContext from "../../context/languageContext";
+import MovieContext from "../../context/movieContext";
 
 // import components
 import Welcome from "../../components/welcome/Welcome";
 import Movies from "../../components/movie/Movies";
+import Loader from "../../components/loader/Loader";
 
 function HomePage() {
     const navigate = useNavigate();
@@ -18,7 +20,7 @@ function HomePage() {
     const { language, setLanguage } = useContext(languageContext);
 
     const [moviesList, setMoviesList] = useState([]);
-
+    // console.log(`eee`, moviesList);
     const [page, setPage] = useState(1);
     const [maxpages, setMaxpages] = useState(1);
     const [error, setError] = useState(null);
@@ -26,7 +28,9 @@ function HomePage() {
     // search
     const [moviesListSeacrh, setMoviesListSeacrh] = useState([]);
     const [query, setQuery] = useState("");
+    // const [sFalse, setSFalse] = useState(false);
 
+    // `https://api.themoviedb.org/3/movie/popular?api_key=f0e69a1690e589b57b176ce0340d7a76&language=en-US&page=1`;
     // movies - 6
     useEffect(() => {
         const fetchMovies = async () => {
@@ -39,10 +43,12 @@ function HomePage() {
                         }movie/popular?api_key=${
                             process.env.REACT_APP_API_KEY.slice(1, -2) ||
                             process.env.REACT_APP_API_KEY
-                        }&language=en-US&page=1`
+                        }&language=${
+                            language === "en" ? "en-US" : "ar"
+                        }&page=${page}`
                     )
                     .then((response) => {
-                        // console.log(response);
+                        // console.log(`22`, response);
                         setMoviesList(response.data.results);
                         setMaxpages(response.data.total_pages);
                     });
@@ -51,9 +57,10 @@ function HomePage() {
             }
         };
         fetchMovies();
-    }, []);
+    }, [language, page]);
 
     // search movies
+    // https://api.themoviedb.org/3/search/movie?api_key=f0e69a1690e589b57b176ce0340d7a76&language=ar&query=read
     useEffect(() => {
         const fetchMoviesSearch = async () => {
             try {
@@ -65,6 +72,8 @@ function HomePage() {
                         }search/movie?api_key=${
                             process.env.REACT_APP_API_KEY.slice(1, -2) ||
                             process.env.REACT_APP_API_KEY
+                        }&language=${
+                            language === "en" ? "en-US" : "ar"
                         }&query=${query}`
                     )
                     .then((response) => {
@@ -76,15 +85,36 @@ function HomePage() {
             }
         };
         fetchMoviesSearch();
-    }, [query]);
+    }, [language, query]);
+
+    if (!moviesList) return <Loader />;
 
     return (
         <>
             <Welcome query={query} setQuery={setQuery} />
+
             {query ? (
-                <Movies moviesList={moviesListSeacrh} />
+                <MovieContext.Provider
+                    value={{
+                        moviesListSeacrh,
+                        query,
+                    }}
+                >
+                    <Movies />
+                </MovieContext.Provider>
             ) : (
-                <Movies moviesList={moviesList} />
+                <MovieContext.Provider
+                    value={{
+                        moviesList,
+                        query,
+                        page,
+                        setPage,
+                        maxpages,
+                        setMaxpages,
+                    }}
+                >
+                    <Movies />
+                </MovieContext.Provider>
             )}
         </>
     );

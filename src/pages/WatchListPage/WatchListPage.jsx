@@ -1,12 +1,26 @@
 /* eslint-disable react/jsx-no-undef */
-import React from "react";
+import React, { useContext } from "react";
 
-function WatchList() {
+// context
+import themeContext from "../../context/themeContext";
+import languageContext from "../../context/languageContext";
+
+// components
+import WatchList from "../../components/watchlist/WatchList";
+
+function WatchListPage() {
+    const { darkMode, setDarkMode } = useContext(themeContext);
+    const { language, setLanguage } = useContext(languageContext);
+
     return (
         <>
-            <div>WatchList</div>
+            <div className={`watchlistpage ${darkMode ? "text-bg-dark" : ""}`}>
+                <div className="container py-5" style={{ minHeight: "100vh" }}>
+                    <WatchList />
+                </div>
+            </div>
         </>
     );
 }
 
-export default WatchList;
+export default WatchListPage;

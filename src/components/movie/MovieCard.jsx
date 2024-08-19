@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
-// import components
+// context
+import themeContext from "../../context/themeContext";
+import languageContext from "../../context/languageContext";
+
+// conponents
 import Rating from "./Rating";
 import AddWatchLater from "./AddWatchLater";
 
@@ -10,6 +14,8 @@ import backdrop_image from "../../assets/Images/error/no-image-available.jpg";
 
 function MovieCard({ movie }) {
     const navigate = useNavigate();
+    const { darkMode, setDarkMode } = useContext(themeContext);
+    const { language, setLanguage } = useContext(languageContext);
 
     const {
         id,
@@ -20,10 +26,17 @@ function MovieCard({ movie }) {
         backdrop_path,
     } = movie;
 
+    // console.log(`eee`, parseInt(vote_average));
+    // console.log(`333>>`, release_date);
+
     return (
         <>
-            <div className="col-12 col-md-4 col-lg-4">
-                <div className="card mb-2 border-0 vh-50">
+            <div className="col-12 col-md-4 col-lg-3 col-xl-2 ">
+                <div
+                    className={`card mb-2 border-0 shadow flex-fill h-100 ${
+                        darkMode ? "text-bg-dark" : ""
+                    }`}
+                >
                     <img
                         onClick={() => navigate(`/movie/${id}`)}
                         role="button"
@@ -37,38 +50,36 @@ function MovieCard({ movie }) {
                                   }${poster_path || backdrop_path}`
                                 : `${backdrop_image}`
                         }
-                        className="card-img-top img-fluid rounded"
+                        className={`card-img-top img-fluid rounded-3 ${
+                            darkMode ? "text-bg-dark" : ""
+                        }`}
                         alt={`${title}`}
                     />
 
-                    <div className="card-body p-0 position-relative rounded mt-1">
-                        <h5
-                            onClick={() => navigate(`/movie/${id}`)}
-                            className="d-inline-block card-title mt-3 w-75"
-                            role="button"
-                            style={{
-                                textWrap: "nowrap",
-                                textOverflow: "ellipsis",
-                                overflow: "hidden",
-                            }}
-                        >
-                            {title}
-                        </h5>
-                        <p
-                            className="position-absolute m-0 text-secondary p-0"
-                            style={{ bottom: "-5px" }}
-                        >
-                            {release_date}
-                        </p>
+                    <div
+                        className={`card-body p-1 px-2 position-relative rounded mt-1 d-flex align-items-center justify-content-between ${
+                            darkMode ? "text-bg-dark" : ""
+                        }`}
+                    >
+                        <div className="mt-3">
+                            <h5
+                                onClick={() => navigate(`/movie/${id}`)}
+                                role="button"
+                                className="d-inline-block card-title mb-0 text-wrap"
+                            >
+                                {title}
+                            </h5>
 
-                        <div
-                            className="position-absolute"
-                            style={{ top: "-30px", left: "15px" }}
-                        >
-                            <Rating rate={parseInt(vote_average)} />
+                            <p className=" m-0 text-secondary p-0">
+                                {release_date}
+                            </p>
                         </div>
 
-                        <AddWatchLater movie={movie} key={id} />
+                        <Rating rate={parseInt(vote_average)} />
+
+                        <div className="mt-3">
+                            <AddWatchLater movie={movie} key={id} />
+                        </div>
                     </div>
                 </div>
             </div>

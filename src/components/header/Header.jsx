@@ -6,8 +6,13 @@ import { useSelector } from "react-redux";
 import { Nav, Navbar } from "react-bootstrap";
 
 // font awsome icons
-import { faFilm, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faFilm,
+    faHeart,
+    faMoon,
+    faSun,
+} from "@fortawesome/free-solid-svg-icons";
 
 // context
 import themeContext from "../../context/themeContext";
@@ -21,58 +26,114 @@ function Header() {
 
     return (
         <>
-            <div className="header bg-body-tertiary sticky-top">
-                <Navbar className="ps-5 pe-5 bg-warning flex-column flex-md-row  justify-content-between">
+            <div
+                className={`header  sticky-top  ${
+                    darkMode ? " text-bg-dark" : "bg-body-tertiary"
+                }`}
+            >
+                <Navbar
+                    className={` d-flex justify-content-between align-items-center flex-column flex-md-row  gap-3 ps-5 pe-5   ${
+                        darkMode ? "text-bg-dark" : "text-bg-warning"
+                    }`}
+                >
                     <NavLink
                         className="navbar-brand fs-4 d-flex align-items-center gap-2"
                         to="/home"
                     >
-                        <FontAwesomeIcon icon={faFilm} />
-                        <span className="d-inline-block">Movie App</span>
+                        <FontAwesomeIcon
+                            icon={faFilm}
+                            className={`${darkMode ? "text-white" : ""}`}
+                        />
+
+                        <span
+                            className={`d-inline-block fw-bold ${
+                                darkMode ? "text-bg-dark" : ""
+                            }`}
+                        >
+                            {language === "en" ? "Movie App" : "موقع أفلام"}
+                        </span>
+                        {/* <span className="text-bg-secondary">mazen</span> */}
                     </NavLink>
 
                     <Nav className="d-flex align-items-center">
-                        <NavLink className="nav-link pe-3 fw-bold">
-                            <svg
-                                style={{
-                                    width: "20px",
-                                    height: "20px",
-                                    transform: `rotateZ(${
-                                        darkMode ? "180deg" : "0deg"
-                                    })`,
-                                }}
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 512 512"
-                                onClick={() => setDarkMode(!darkMode)}
-                            >
-                                <path d="M448 256c0-106-86-192-192-192l0 384c106 0 192-86 192-192zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z" />
-                            </svg>
+                        <NavLink
+                            className={`nav-link ${
+                                language === "en" ? "pe-3" : "ps-3"
+                            } fw-bold`}
+                        >
+                            {darkMode ? (
+                                <FontAwesomeIcon
+                                    icon={faSun}
+                                    onClick={() => setDarkMode(!darkMode)}
+                                    className="text-white"
+                                />
+                            ) : (
+                                <FontAwesomeIcon
+                                    icon={faMoon}
+                                    onClick={() => setDarkMode(!darkMode)}
+                                />
+                            )}
                         </NavLink>
 
                         <NavLink
-                            className="nav-link pe-3 fw-bold"
+                            className={`nav-link  ${
+                                language === "en" ? "pe-3" : "ps-3"
+                            }  fw-bol`}
                             onClick={() =>
-                                setLanguage(language === "EN" ? "AR" : "EN")
+                                setLanguage(language === "en" ? "ar" : "en")
                             }
                         >
-                            {language}
+                            <span
+                                className={`fw-bold text-uppercase ${
+                                    darkMode ? "text-white" : ""
+                                } `}
+                            >
+                                {language}
+                            </span>
                         </NavLink>
 
                         <NavLink
-                            className="nav-link fs-5 d-flex align-items-center gap-2"
+                            className="nav-link fs-5 d-flex align-items-center gap-3 position-relative"
                             to="/watchlist"
                         >
-                            <span>Watchlist</span>
-                            <FontAwesomeIcon icon={faHeart} />
+                            <span
+                                className={`fw-bold ${
+                                    darkMode ? "text-white" : ""
+                                }`}
+                            >
+                                {language === "en"
+                                    ? "Watchlist"
+                                    : "قائمة المشاهدات"}
+                            </span>
+
+                            <FontAwesomeIcon
+                                icon={faHeart}
+                                className={`${darkMode ? "text-white" : ""}`}
+                            />
+
                             {watchlist?.length ? (
                                 <>
-                                    <span className="bg-danger">
+                                    <span
+                                        className={`position-absolute top-50 ${
+                                            language === "en"
+                                                ? "start-100"
+                                                : "start-0"
+                                        } translate-middle badge rounded-pill bg-danger`}
+                                    >
                                         {watchlist?.length}
                                     </span>
                                 </>
                             ) : (
                                 <>
-                                    <span>0</span>
+                                    <span
+                                        className={`position-absolute top-50 ${
+                                            language === "en"
+                                                ? "start-100"
+                                                : "start-0"
+                                        } translate-middle badge rounded-pill bg-danger`}
+                                    >
+                                        0
+                                    </span>
                                 </>
                             )}
                         </NavLink>
