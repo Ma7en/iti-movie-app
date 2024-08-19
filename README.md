@@ -4,7 +4,7 @@
 
 ## Project Managers :-
 
-    - Mazen Abdeltawab Saad
+    - Mazen AbdelTawab Saad
     - Ahmed Mohamed Ahmed
     - Nada Mohamed Shaaban
 
