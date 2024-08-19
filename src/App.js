@@ -1,15 +1,19 @@
 /* eslint-disable react/jsx-no-undef */
+// import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
-import "./App.css";
 
 import { useState } from "react";
 import { Provider } from "react-redux";
 
+// store
 import store from "./store/store";
-import AppRoute from "./routes/Router";
 
+// context
 import themeContext from "./context/themeContext";
 import languageContext from "./context/languageContext";
+
+// route
+import AppRoute from "./routes/Router";
 
 function App() {
     const [darkMode, setDarkMode] = useState(false);
