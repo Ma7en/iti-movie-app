@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/iti-movie-app/static/css/main.fafc8537.css",
+    "main.js": "/iti-movie-app/static/js/main.e56fe59a.js",
+    "static/js/453.3d58a8b5.chunk.js": "/iti-movie-app/static/js/453.3d58a8b5.chunk.js",
+    "static/js/784.8ec3cc72.chunk.js": "/iti-movie-app/static/js/784.8ec3cc72.chunk.js",
+    "static/js/184.29dcde90.chunk.js": "/iti-movie-app/static/js/184.29dcde90.chunk.js",
+    "static/js/984.a68795c3.chunk.js": "/iti-movie-app/static/js/984.a68795c3.chunk.js",
+    "static/js/719.ecfd0f18.chunk.js": "/iti-movie-app/static/js/719.ecfd0f18.chunk.js",
+    "static/js/928.f971c7d4.chunk.js": "/iti-movie-app/static/js/928.f971c7d4.chunk.js",
+    "static/js/446.851f3a49.chunk.js": "/iti-movie-app/static/js/446.851f3a49.chunk.js",
+    "static/js/916.6b783c18.chunk.js": "/iti-movie-app/static/js/916.6b783c18.chunk.js",
+    "static/js/213.ad683aca.chunk.js": "/iti-movie-app/static/js/213.ad683aca.chunk.js",
+    "static/js/769.d770187a.chunk.js": "/iti-movie-app/static/js/769.d770187a.chunk.js",
+    "static/media/no-image-available.jpg": "/iti-movie-app/static/media/no-image-available.7b60afe83d420fcb5332.jpg",
+    "index.html": "/iti-movie-app/index.html",
+    "main.fafc8537.css.map": "/iti-movie-app/static/css/main.fafc8537.css.map",
+    "main.e56fe59a.js.map": "/iti-movie-app/static/js/main.e56fe59a.js.map",
+    "453.3d58a8b5.chunk.js.map": "/iti-movie-app/static/js/453.3d58a8b5.chunk.js.map",
+    "784.8ec3cc72.chunk.js.map": "/iti-movie-app/static/js/784.8ec3cc72.chunk.js.map",
+    "184.29dcde90.chunk.js.map": "/iti-movie-app/static/js/184.29dcde90.chunk.js.map",
+    "984.a68795c3.chunk.js.map": "/iti-movie-app/static/js/984.a68795c3.chunk.js.map",
+    "719.ecfd0f18.chunk.js.map": "/iti-movie-app/static/js/719.ecfd0f18.chunk.js.map",
+    "928.f971c7d4.chunk.js.map": "/iti-movie-app/static/js/928.f971c7d4.chunk.js.map",
+    "446.851f3a49.chunk.js.map": "/iti-movie-app/static/js/446.851f3a49.chunk.js.map",
+    "916.6b783c18.chunk.js.map": "/iti-movie-app/static/js/916.6b783c18.chunk.js.map",
+    "213.ad683aca.chunk.js.map": "/iti-movie-app/static/js/213.ad683aca.chunk.js.map",
+    "769.d770187a.chunk.js.map": "/iti-movie-app/static/js/769.d770187a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fafc8537.css",
+    "static/js/main.e56fe59a.js"
+  ]
+}
