@@ -1,4 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
+
+// context
 import themeContext from "../../context/themeContext";
 import languageContext from "../../context/languageContext";
 

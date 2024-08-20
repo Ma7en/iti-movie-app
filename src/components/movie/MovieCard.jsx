@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -8,6 +9,7 @@ import languageContext from "../../context/languageContext";
 // conponents
 import Rating from "./Rating";
 import AddWatchLater from "./AddWatchLater";
+import Loader from "../loader/Loader";
 
 // assest
 import backdrop_image from "../../assets/Images/error/no-image-available.jpg";
@@ -17,6 +19,7 @@ function MovieCard({ movie }) {
     const { darkMode, setDarkMode } = useContext(themeContext);
     const { language, setLanguage } = useContext(languageContext);
 
+    if (!movie) return <Loader />;
     const {
         id,
         title,
@@ -25,9 +28,6 @@ function MovieCard({ movie }) {
         poster_path,
         backdrop_path,
     } = movie;
-
-    // console.log(`eee`, parseInt(vote_average));
-    // console.log(`333>>`, release_date);
 
     return (
         <>
@@ -43,10 +43,11 @@ function MovieCard({ movie }) {
                         src={
                             poster_path
                                 ? `${
+                                      process.env.REACT_APP_IMAGE_URL ||
                                       process.env.REACT_APP_IMAGE_URL.slice(
                                           1,
                                           -2
-                                      ) || process.env.REACT_APP_IMAGE_URL
+                                      )
                                   }${poster_path || backdrop_path}`
                                 : `${backdrop_image}`
                         }

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { useContext } from "react";
 import { useSelector } from "react-redux";
@@ -15,7 +16,6 @@ function WatchList() {
     const { language, setLanguage } = useContext(languageContext);
 
     const watchListMovies = useSelector((state) => state.watchlist.watchlist);
-    // console.log(`ffg.....>>`, watchListMovies);
 
     return (
         <>

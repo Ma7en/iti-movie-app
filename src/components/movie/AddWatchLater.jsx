@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
@@ -23,7 +24,6 @@ function AddWatchLater({ movie }) {
     const [selected, setSelected] = useState(false);
 
     const { watchlist } = useSelector((state) => state.watchlist);
-    // console.log(`watchlist`, watchlist);
 
     useEffect(() => {
         setSelected(watchlist.includes(movie));

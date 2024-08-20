@@ -20,7 +20,6 @@ function HomePage() {
     const { language, setLanguage } = useContext(languageContext);
 
     const [moviesList, setMoviesList] = useState([]);
-    // console.log(`eee`, moviesList);
     const [page, setPage] = useState(1);
     const [maxpages, setMaxpages] = useState(1);
     const [error, setError] = useState(null);
@@ -38,17 +37,16 @@ function HomePage() {
                 await axios
                     .get(
                         `${
-                            process.env.REACT_APP_BASE_API_Link.slice(1, -2) ||
-                            process.env.REACT_APP_BASE_API_Link
+                            process.env.REACT_APP_BASE_API_Link ||
+                            process.env.REACT_APP_BASE_API_Link.slice(1, -2)
                         }movie/popular?api_key=${
-                            process.env.REACT_APP_API_KEY.slice(1, -2) ||
-                            process.env.REACT_APP_API_KEY
+                            process.env.REACT_APP_API_KEY ||
+                            process.env.REACT_APP_API_KEY.slice(1, -2)
                         }&language=${
                             language === "en" ? "en-US" : "ar"
                         }&page=${page}`
                     )
                     .then((response) => {
-                        // console.log(`22`, response);
                         setMoviesList(response.data.results);
                         setMaxpages(response.data.total_pages);
                     });
@@ -67,17 +65,16 @@ function HomePage() {
                 await axios
                     .get(
                         `${
-                            process.env.REACT_APP_BASE_API_Link.slice(1, -2) ||
-                            process.env.REACT_APP_BASE_API_Link
+                            process.env.REACT_APP_BASE_API_Link ||
+                            process.env.REACT_APP_BASE_API_Link.slice(1, -2)
                         }search/movie?api_key=${
-                            process.env.REACT_APP_API_KEY.slice(1, -2) ||
-                            process.env.REACT_APP_API_KEY
+                            process.env.REACT_APP_API_KEY ||
+                            process.env.REACT_APP_API_KEY.slice(1, -2)
                         }&language=${
                             language === "en" ? "en-US" : "ar"
                         }&query=${query}`
                     )
                     .then((response) => {
-                        // console.log(response);
                         setMoviesListSeacrh(response.data.results);
                     });
             } catch (error) {

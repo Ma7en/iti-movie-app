@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -39,11 +40,11 @@ function WatchCard({ watch }) {
                                 src={
                                     poster_path
                                         ? `${
+                                              process.env.REACT_APP_IMAGE_URL ||
                                               process.env.REACT_APP_IMAGE_URL.slice(
                                                   1,
                                                   -2
-                                              ) ||
-                                              process.env.REACT_APP_IMAGE_URL
+                                              )
                                           }${poster_path || backdrop_path}`
                                         : `${backdrop_image}`
                                 }

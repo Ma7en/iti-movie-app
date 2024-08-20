@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
 // font awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

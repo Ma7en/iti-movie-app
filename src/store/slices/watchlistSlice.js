@@ -9,7 +9,6 @@ const watchlistSlice = createSlice({
     initialState: Initial_State,
     reducers: {
         toggleWatchList: (state, action) => {
-            // console.log(`action`, action.payload);
             const new_watchlist = action.payload;
             if (
                 !state.watchlist.find((watch) => watch.id === new_watchlist.id)
