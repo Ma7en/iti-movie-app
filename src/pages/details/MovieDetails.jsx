@@ -35,7 +35,7 @@ function MovieDetails() {
 
     const [error, setError] = useState(false);
 
-    // get movie # https://api.themoviedb.org/3/movie/533535?language=en-US
+    // get movie # https://api.themoviedb.org/3/movie/533535?api_key=fir9f4fmkd9dmi3994nfir4?language=en-US
     useEffect(() => {
         const fetchMovies = async () => {
             try {
@@ -63,7 +63,7 @@ function MovieDetails() {
         fetchMovies();
     }, [id, language]);
 
-    // get Recommendations #
+    // get Recommendations # https://api.themoviedb.org/3/movie/533535/recommendations?api_key=fir9f4fmkd9dmi3994nfir4?language=en-US
     useEffect(() => {
         const fetchMoviesRecommend = async () => {
             try {

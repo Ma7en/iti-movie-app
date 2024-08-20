@@ -57,5 +57,5 @@
 
 ### Links :-
 
-    - https://iti-movieapp.vercel.app/
-    - https://iti-movieapp.netlify.app/
+-   [https://iti-movieapp.vercel.app/](https://iti-movieapp.vercel.app/)
+-   [https://iti-movieapp.netlify.app/](https://iti-movieapp.netlify.app/)
